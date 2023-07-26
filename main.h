@@ -1,19 +1,11 @@
-#ifndef FUNCTION_POINTERS_H
-#define FUNCTION_POINTERS_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-/**
- * struct op - Struct op
- *
- * @op: The operator
- * @f: The function associated
- */
-typedef struct op
-{
-	char *op;
-	int (*f)(int a, int b);
-} op_t;
+int _printf(const char *format, ...);
 
-
-#endif /* FUNCTION_POINTERS_H */
+#endif /* MAIN_H */
