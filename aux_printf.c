@@ -28,10 +28,11 @@ int eval_format(const char *format, va_list val)
 
 				print_string(chars, &form_len);
 			}
-			/*else if (format[p] == '\0')
+			else if (format[p] == '%')
 			{
-				exit(-1);
-			}*/
+				putchar(format[p]);
+				form_len++;
+			}
 			else
 			{
 				exit(-1);
