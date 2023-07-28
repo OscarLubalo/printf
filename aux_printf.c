@@ -19,11 +19,13 @@ int eval_format(const char *format, va_list val)
 			if (format[p] == 'c')
 			{
 				char ch = va_arg(val, int);
+
 				print_char(ch, &form_len);
 			}
 			else if (format[p] == 's')
 			{
 				char *chars = va_arg(val, char*);
+
 				print_string(chars, &form_len);
 			}
 			else if (format[p] == '%')
@@ -32,7 +34,7 @@ int eval_format(const char *format, va_list val)
 				form_len++;
 			}
 			else
-				exit(-1);
+				return(-1);
 		}
 		else
 		{
