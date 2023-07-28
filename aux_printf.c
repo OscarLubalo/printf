@@ -34,7 +34,7 @@ int eval_format(const char *format, va_list val)
 				form_len++;
 			}
 			else
-				return(-1);
+				return (-1);
 		}
 		else
 		{
