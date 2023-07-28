@@ -28,14 +28,13 @@ int eval_format(const char *format, va_list val)
 
 				print_string(chars, &form_len);
 			}
-			else if (format[p] == '\0')
+			/*else if (format[p] == '\0')
 			{
 				exit(-1);
-			}
+			}*/
 			else
 			{
-				putchar(format[p]);
-				form_len++;
+				exit(-1);
 			}
 
 		}
