@@ -34,7 +34,11 @@ int eval_format(const char *format, va_list val)
 				form_len++;
 			}
 			else
-				return (-1);
+			{
+				putchar(format[p]);
+				form_len++;
+			}
+
 		}
 		else
 		{
