@@ -13,7 +13,7 @@ void print_char(char ch, int *form_len)
 
 /**
  * print_string - handles string printing
- * @chars: string to be printes
+ * @chars: string to be printed
  * @form_len: character count
  * Return: void
  */
@@ -27,6 +27,12 @@ void print_string(char *chars, int *form_len)
 	}
 }
 
+/**
+ * print_unknown - prints unknown characters
+ * @format: unknown character
+ * @form_len: character count
+ * Return: void
+ */
 void print_unknown(const char *format, int *form_len)
 {
 	format--;
@@ -36,6 +42,14 @@ void print_unknown(const char *format, int *form_len)
 	(*form_len) += 2;
 }
 
+/**
+ * handle_specifier - reads format specifier and calls appropiate
+ * printing function
+ * @format: format specifier
+ * @val: list of arguments
+ * @form_len: character count
+ * Return: void
+ */
 void handle_specifier(const char *format, va_list val, int *form_len)
 {
 	if (*format == 'c')

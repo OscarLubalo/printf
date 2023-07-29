@@ -17,32 +17,6 @@ int eval_format(const char *format, va_list val)
 		{
 			p++;
 			handle_specifier(&format[p], val, &form_len);
-			/*if (format[p] == 'c')
-			{
-				char ch = va_arg(val, int);
-
-				print_char(ch, &form_len);
-			}
-			else if (format[p] == 's')
-			{
-				char *chars = va_arg(val, char*);
-
-				print_string(chars, &form_len);
-			}
-			else if (format[p] == '%')
-			{
-				putchar(format[p]);
-				form_len++;
-			}
-			else
-			{
-				p--;
-				putchar(format[p]);
-				p++;
-				putchar(format[p]);
-				form_len += 2;
-			}*/
-
 		}
 		else
 		{
