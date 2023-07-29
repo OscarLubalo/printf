@@ -62,7 +62,10 @@ void handle_specifier(const char *format, va_list val, int *form_len)
 	{
 		char *chars = va_arg(val, char*);
 
-		print_string(chars, form_len);
+		if (chars)
+			print_string(chars, form_len);
+		else
+			exit(-1);
 	}
 	else if (*format == '%')
 	{
