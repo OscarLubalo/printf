@@ -61,12 +61,12 @@ void handle_specifier(const char *format, va_list val, int *form_len)
 	else if (*format == 's')
 	{
 		char *chars = va_arg(val, char*);
+		char *null = "(null)";
 
 		if (chars == NULL)
 		{
-			putchar('\r');
-			fflush(stdout);
-			exit(-1);
+			print_string(null, form_len);
+			return;
 		}
 		print_string(chars, form_len);
 	}
