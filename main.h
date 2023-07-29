@@ -8,7 +8,10 @@
 
 int _printf(const char *format, ...);
 int eval_format(const char *format, va_list val);
+void handle_specifier(const char *format, va_list val, int *form_len);
 void print_char(char ch, int *form_len);
 void print_string(char *chars, int *form_len);
+void print_unknown(const char *format, int *form_len);
+
 
 #endif /* MAIN_H */

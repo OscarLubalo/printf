@@ -16,7 +16,8 @@ int eval_format(const char *format, va_list val)
 		if (format[p] == '%')
 		{
 			p++;
-			if (format[p] == 'c')
+			handle_specifier(&format[p], val, &form_len);
+			/*if (format[p] == 'c')
 			{
 				char ch = va_arg(val, int);
 
@@ -35,8 +36,12 @@ int eval_format(const char *format, va_list val)
 			}
 			else
 			{
-				exit(-1);
-			}
+				p--;
+				putchar(format[p]);
+				p++;
+				putchar(format[p]);
+				form_len += 2;
+			}*/
 
 		}
 		else
