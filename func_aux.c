@@ -62,7 +62,7 @@ void handle_specifier(const char *format, va_list val, int *form_len)
 	{
 		char *chars = va_arg(val, char*);
 
-		if (chars)
+		if (chars != NULL)
 			print_string(chars, form_len);
 		else
 			exit(-1);
