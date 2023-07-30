@@ -28,6 +28,44 @@ void print_string(char *chars, int *form_len)
 }
 
 /**
+ * print_dec - prints decimal numbers
+ * @dec: decimal number parameter
+ * @form_len: character count
+ * Return: void
+ */
+void print_dec(int dec, int *form_len)
+{
+	int i = 0;
+	char decArr[25];
+	int decLen;
+	char decChar;
+
+	if (dec < 0)
+	{
+		putchar('-');
+		(*form_len)++;
+	}
+	while (dec != 0)
+	{
+		int rem = dec % 10;
+
+		dec /= 10;
+		decChar = rem + '0';
+		decArr[i] = decChar;
+
+		i++;
+	}
+	decLen = i - 1;
+
+	while (decLen >= 0)
+	{
+		putchar(decArr[decLen]);
+		(*form_len)++;
+		decLen--;
+	}
+}
+
+/**
  * print_unknown - prints unknown characters
  * @format: unknown character
  * @form_len: character count
@@ -50,6 +88,7 @@ void print_unknown(const char *format, int *form_len)
  * @form_len: character count
  * Return: void
  */
+
 void handle_specifier(const char *format, va_list val, int *form_len)
 {
 	if (*format == 'c')
@@ -69,6 +108,12 @@ void handle_specifier(const char *format, va_list val, int *form_len)
 			return;
 		}
 		print_string(chars, form_len);
+	}
+	else if (*format == 'd' || *format == 'i')
+	{
+		int num = va_arg(val, int);
+
+		print_dec(num, form_len);
 	}
 	else if (*format == '%')
 	{

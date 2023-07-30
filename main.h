@@ -5,12 +5,14 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
 int eval_format(const char *format, va_list val);
 void handle_specifier(const char *format, va_list val, int *form_len);
 void print_char(char ch, int *form_len);
 void print_string(char *chars, int *form_len);
+void print_dec(int dec, int *form_len);
 void print_unknown(const char *format, int *form_len);
 
 
