@@ -40,8 +40,21 @@ void print_dec(int dec, int *form_len)
 	int decLen;
 	char decChar;
 
-	if (dec < 0)
+	if (dec == 0)
 	{
+		putchar('0');
+		(*form_len)++;
+		return;
+	}
+	if (dec == INT_MIN)
+	{
+		putchar('-');
+		(*form_len)++;
+		dec = -(dec + 1);
+	}
+	else if (dec < 0)
+	{
+		dec *= -1;
 		putchar('-');
 		(*form_len)++;
 	}
@@ -56,7 +69,6 @@ void print_dec(int dec, int *form_len)
 		i++;
 	}
 	decLen = i - 1;
-
 	while (decLen >= 0)
 	{
 		putchar(decArr[decLen]);
