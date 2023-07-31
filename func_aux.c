@@ -51,12 +51,14 @@ void print_dec(int dec, int *form_len)
 		putchar('-');
 		(*form_len)++;
 		dec = -(dec + 1);
+		decArr[i++] = dec % 10 + 1 + '0';
+		dec /= 10;
 	}
-	else if (dec < 0)
+	if (dec < 0)
 	{
-		dec *= -1;
 		putchar('-');
 		(*form_len)++;
+		dec = -dec;
 	}
 	while (dec != 0)
 	{
@@ -69,12 +71,7 @@ void print_dec(int dec, int *form_len)
 		i++;
 	}
 	decLen = i - 1;
-	while (decLen >= 0)
-	{
-		putchar(decArr[decLen]);
-		(*form_len)++;
-		decLen--;
-	}
+	write_dec(decArr, decLen, form_len);
 }
 
 /**
@@ -123,9 +120,9 @@ void handle_specifier(const char *format, va_list val, int *form_len)
 	}
 	else if (*format == 'd' || *format == 'i')
 	{
-		int num = va_arg(val, int);
+		int dec = va_arg(val, int);
 
-		print_dec(num, form_len);
+		print_dec(dec, form_len);
 	}
 	else if (*format == '%')
 	{

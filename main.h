@@ -14,6 +14,7 @@ void print_char(char ch, int *form_len);
 void print_string(char *chars, int *form_len);
 void print_dec(int dec, int *form_len);
 void print_unknown(const char *format, int *form_len);
+void write_dec(char arr[], int arr_len, int *form_len);
 
 
 #endif /* MAIN_H */
